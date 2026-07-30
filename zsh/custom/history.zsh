@@ -27,3 +27,6 @@ setopt HIST_REDUCE_BLANKS
 
 # Show the command before executing history expansion
 setopt HIST_VERIFY
+
+# Set command execution timestamp "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd" or custom strftime format (see 'man strftime')
+HIST_STAMPS="%d/%m/%Y %H:%M:%S"
