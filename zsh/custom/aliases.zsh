@@ -21,6 +21,9 @@ alias df='df -h'
 alias du='du -h'
 alias dus='du -sh'
 
+# Docker
+alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
+
 # Processes
 alias psg='ps aux | grep -v grep | grep'
 
