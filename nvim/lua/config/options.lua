@@ -77,6 +77,7 @@ opt.cursorline = true
 opt.showmode = false
 
 opt.laststatus = 3
+opt.statusline = "%f %m%r%=%y  %l:%c"
 
 --------------------------------------------------
 -- Completion
@@ -100,5 +101,5 @@ opt.updatetime = 200
 --------------------------------------------------
 
 opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldenable = false
