@@ -187,6 +187,12 @@ In Oil:
 - `q` closes the floating browser.
 - `g.` toggles hidden files, such as files whose names start with a dot.
 
+Git status is shown with colors and symbols at the ends of entries. Common
+symbols include `?` for an untracked file, `+` for a newly staged file, `~`
+for a modified file, `D` for a deleted file, and `!` for a conflict. Directory
+entries also reflect the Git status of their contents. To refresh the status
+manually, run `:lua require("oil-git").refresh()`.
+
 To create, rename, or remove files from Oil, use its normal buffer-editing
 actions and write the buffer with `:w` to apply the changes. Take care: writing
 the buffer performs the filesystem operations. Press `g?` inside Oil for its
@@ -304,6 +310,10 @@ stripe. Neovim can make its own surfaces transparent, but the terminal or
 window manager is responsible for actual window transparency and blur.
 If a plugin or colorscheme later paints a solid background, the groups are
 cleared again after a colorscheme loads.
+
+Line numbers are absolute and do not change as the cursor moves. Git additions,
+changes, and deletions appear both beside the line numbers and in the scrollbar
+overview on the right. The scrollbar can also show diagnostics.
 
 ## Reload files changed outside Neovim
 

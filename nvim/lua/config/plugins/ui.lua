@@ -30,5 +30,17 @@ require("oil").setup({
 
 require("gitsigns").setup()
 
+require("oil-git").setup({
+    show_file_highlights = true,
+    show_directory_highlights = true,
+    show_file_symbols = true,
+    show_directory_symbols = true,
+    symbol_position = "eol",
+})
+
+require("scrollbar").setup({
+    handlers = { gitsigns = true },
+})
+
 -- Keep familiar automatic pair insertion, without changing other mappings.
 require("mini.pairs").setup()

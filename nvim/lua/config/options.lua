@@ -22,7 +22,7 @@ opt.autoread = true
 --------------------------------------------------
 
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 
 --------------------------------------------------
 -- Indentation
