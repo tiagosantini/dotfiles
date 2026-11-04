@@ -187,11 +187,23 @@ In Oil:
 - `q` closes the floating browser.
 - `g.` toggles hidden files, such as files whose names start with a dot.
 
+### Return to the folder from an open file
+
+After opening a file from Oil, you are in the regular editor buffer—not in the
+Oil listing. To browse the folder containing that file again:
+
+- Press `sf` to open a floating Oil browser in the file's folder.
+- Run `:Oil` to open Oil in the current window at the file's folder.
+
+Once you are back in an Oil listing, press `h` to go up one folder. The
+default Oil shortcut `-` does the same. Press `Enter` on a folder to go into it.
+
 Git status is shown with colors and symbols at the ends of entries. Common
 symbols include `?` for an untracked file, `+` for a newly staged file, `~`
 for a modified file, `D` for a deleted file, and `!` for a conflict. Directory
 entries also reflect the Git status of their contents. To refresh the status
-manually, run `:lua require("oil-git").refresh()`.
+manually in an Oil buffer, run `:lua require("oil-git").refresh()`. Open Oil
+buffers are also refreshed after a terminal app such as LazyGit closes.
 
 To create, rename, or remove files from Oil, use its normal buffer-editing
 actions and write the buffer with `:w` to apply the changes. Take care: writing
