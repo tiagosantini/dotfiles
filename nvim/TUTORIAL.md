@@ -214,6 +214,81 @@ When the matching server is installed and attached to the current project:
 | `[d` / `]d` | Go to the previous / next diagnostic |
 | `Space e` | Show diagnostics for the current line |
 
+### Navigate the results opened by `gr`
+
+`gr` means “go to references”—similar to **Find All References** in VS Code.
+Neovim asks the language server for every place that uses the symbol under the
+cursor, then shows the matches in a **quickfix list** at the bottom of the
+screen. It is a results window, not a separate editor or a Git menu.
+
+1. Put the cursor on a function, class, or variable and press `gr`.
+2. Move through the result rows with `j`/`k` or the arrow keys. Each row shows
+   a file, line, and a short preview.
+3. Press `Enter` on a result to jump to that file and line.
+4. Close the results window with `:cclose`. Reopen the current list with
+   `:copen`.
+
+You can move between results without selecting them first: run `:cnext` or
+`:cprev` to visit the next or previous result, and `:cfirst` or `:clast` to go
+to the beginning or end of the list. `:copen` is useful if the results window
+is closed but you still want to browse the same list.
+
+If `gr` says no references were found or does nothing, check that the correct
+language server is installed and attached to the file. Run `:checkhealth
+vim.lsp` for diagnostics. A project may also need its project file, such as a
+`.sln`/`.csproj`, `package.json`/`tsconfig.json`, or `go.mod`, for the server to
+understand its source tree.
+
+### Other code menus
+
+- **Code actions (`Space ca`):** Neovim presents actions that apply to the
+  current cursor or selection. Follow the choices and prompt shown on screen
+  (the built-in selection UI may ask you to enter a number); `Esc` cancels.
+  This is similar to VS Code's lightbulb actions.
+- **Rename (`Space cr`):** type the new symbol name in the prompt and press
+  `Enter` to confirm; `Esc` cancels. The language server updates the references
+  it knows about in the project.
+- **File and text pickers (`;f` and `;r`):** type to filter or search, move
+  through matches with the arrow keys or `Ctrl-j`/`Ctrl-k`, then press `Enter`
+  to open a result. `Esc` closes the picker.
+
+If you are unsure what a menu accepts, look at its on-screen key hints first.
+In LazyGit, `?` opens its keybinding help; in Oil, `g?` shows file-browser
+actions.
+
+### Work with code suggestions
+
+Code completion appears while you are in **Insert mode** (typing in a file).
+Suggestions can come from the language server, file paths, snippets, or words
+already in the open buffer. This is regular editor completion—not an AI
+assistant or an automatic code change. Nothing is inserted until you accept an
+item.
+
+This setup uses Blink's `super-tab` preset, which is similar to completion in
+VS Code:
+
+| Key | What it does |
+| --- | --- |
+| `Ctrl-n` / `Ctrl-p` or Down / Up | Select the next / previous suggestion |
+| `Tab` | Accept the selected suggestion; otherwise continue normal Tab or snippet behavior |
+| `Shift-Tab` | Move to the previous snippet placeholder |
+| `Ctrl-e` | Close the suggestion menu without accepting |
+| `Ctrl-Space` | Open the suggestion menu manually |
+| `Ctrl-k` | Toggle signature help when available |
+
+The documentation popup opens automatically after a suggestion is selected.
+Read the highlighted choice before accepting it: a completion may add more
+than the word you first see, such as parentheses or an import. In this setup,
+`Enter` is not the completion-accept key; it normally inserts a newline. `Tab`
+accepts only when the completion menu is active; otherwise it falls back to its
+usual indentation or snippet behavior.
+
+If no suggestions appear, first make sure the relevant language server is
+installed and attached to the project. Completions depend on project context:
+for example, JS/TS projects should include their dependencies and a
+`tsconfig.json` or `jsconfig.json`. You can open the menu manually with
+`Ctrl-Space`, or inspect LSP status with `:checkhealth vim.lsp`.
+
 Supported files are formatted on save when a formatter is available: Lua uses
 Stylua, Go uses `gofmt`, and JS/TS and common data/web files use project-local
 Prettier when installed. C# formatting falls back to the Roslyn language
