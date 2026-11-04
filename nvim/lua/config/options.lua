@@ -15,6 +15,7 @@ opt.backup = false
 opt.writebackup = false
 
 opt.undofile = true
+opt.autoread = true
 
 --------------------------------------------------
 -- Numbers

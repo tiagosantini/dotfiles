@@ -305,6 +305,19 @@ window manager is responsible for actual window transparency and blur.
 If a plugin or colorscheme later paints a solid background, the groups are
 cleared again after a colorscheme loads.
 
+## Reload files changed outside Neovim
+
+`autoread` is enabled. Neovim uses filesystem watchers to notice when another
+program—such as a formatter, build tool, or a second editor—changes a file
+that is open in a buffer, and reloads it automatically when safe. This is
+useful when working across multiple tools or editor windows.
+
+Neovim will not silently replace edits that are still unsaved in the current
+buffer. If both Neovim and another program changed the same file, Neovim warns
+you rather than discarding your unsaved work. Save or compare the changes
+before choosing to reload. To check for external changes manually, run
+`:checktime`.
+
 ## Useful checks and maintenance
 
 Run these from Neovim's command line:
