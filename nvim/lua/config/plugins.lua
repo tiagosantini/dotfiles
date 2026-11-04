@@ -8,6 +8,7 @@ vim.pack.add({
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     { src = "https://github.com/petertriho/nvim-scrollbar", version = "v1" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
@@ -17,5 +18,6 @@ vim.pack.add({
 
 require("config.plugins.ui")
 require("config.plugins.treesitter")
+require("config.plugins.markdown")
 require("config.plugins.editor")
 require("config.plugins.lsp")

@@ -340,6 +340,22 @@ you rather than discarding your unsaved work. Save or compare the changes
 before choosing to reload. To check for external changes manually, run
 `:checktime`.
 
+## Markdown preview
+
+Markdown is rendered directly in the editing buffer. Headings, lists, and
+checkboxes are easier to scan, while fenced code blocks retain their syntax
+highlighting without opaque backgrounds. To switch rendering on or off for the
+current buffer, run:
+
+```vim
+:RenderMarkdown toggle
+```
+
+The renderer uses the Tree-sitter `markdown` and `markdown_inline` parsers. If
+parts of a document do not render, check `:checkhealth nvim-treesitter` and
+make sure those parsers have finished installing. This is an in-editor view,
+not a separate browser preview.
+
 ## Useful checks and maintenance
 
 Run these from Neovim's command line:
