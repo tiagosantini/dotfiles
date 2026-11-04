@@ -1,8 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/dotfiles/zsh/custom"
-export PATH="$PATH:$(go env GOPATH)/bin"
+# Go uses ~/go as its default GOPATH; avoid spawning `go env` on every shell startup.
+export PATH="$PATH:$HOME/go/bin:$HOME/.dotnet/tools"
 export SSL_CERT_DIR="$HOME/.aspnet/dev-certs/trust:/etc/ssl/certs"
-export PATH="$PATH:/home/tiago/.dotnet/tools"
 
 ZSH_THEME="kphoen"
 
@@ -27,4 +27,3 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
