@@ -50,7 +50,9 @@ opt.incsearch = true
 -- Wrapping
 --------------------------------------------------
 
-opt.wrap = false
+opt.wrap = true
+opt.linebreak = true
+opt.breakindent = true
 
 --------------------------------------------------
 -- Scrolling
