@@ -21,6 +21,25 @@ parser installation requires Git, the `tree-sitter` command-line tool, and a C
 compiler. Install these with the package manager for your operating system if
 they are not already available.
 
+## Mermaid diagrams in Markdown
+
+Markdown code fences tagged `mermaid` are rendered as images in the buffer and
+refresh as you edit. This uses `diagram.nvim`, `image.nvim`, and Mermaid CLI.
+Install Mermaid CLI and ImageMagick, and use Kitty or a terminal that supports
+Kitty's graphics protocol:
+
+```sh
+npm install --global @mermaid-js/mermaid-cli
+```
+
+ImageMagick (`magick`) must also be installed. For example, on Debian/Ubuntu run
+`sudo apt install imagemagick`. If you use a terminal without Kitty graphics
+support, change the `backend` in `lua/config/plugins/markdown.lua` to a backend
+supported by your terminal (such as `sixel` or `ueberzug`). The config detects
+an installed Chromium/Chrome executable and tells Mermaid CLI to use it, so a
+separate Puppeteer Chrome download is not needed. Restart Neovim after the
+plugins have been downloaded.
+
 ## Install language servers
 
 Language servers provide features such as completion, go-to-definition,

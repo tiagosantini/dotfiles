@@ -2,6 +2,8 @@
 -- the first time this file is loaded; restart Neovim after that first install.
 vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.icons" },
+    { src = "https://github.com/3rd/image.nvim" },
+    { src = "https://github.com/3rd/diagram.nvim" },
     { src = "https://github.com/folke/snacks.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/malewicz1337/oil-git.nvim" },
