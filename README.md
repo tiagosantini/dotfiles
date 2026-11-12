@@ -52,8 +52,9 @@ timestamped `.backup-*` paths rather than overwriting them. It is safe to rerun.
 
 Open a new shell (or run `exec zsh`) to load Zsh. Start Neovim once to download
 its plugins, then restart it when prompted. Kitty and tmux read their
-configuration on launch; tmux can reload its settings with `tmux source-file
-~/.tmux.conf`.
+configuration on launch. In tmux, press the prefix followed by `r` to reload
+the settings. Use the prefix followed by `|` or `-` to create a side-by-side
+or stacked pane in the current pane's directory.
 
 ## Updating
 
