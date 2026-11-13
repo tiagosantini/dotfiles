@@ -11,7 +11,7 @@ adapting them to yours.
 | --- | --- |
 | `zsh/` | Zsh startup settings, aliases, and Oh My Zsh custom scripts/plugins |
 | `nvim/` | Neovim configuration and plugin lock file |
-| `kitty/` | Kitty terminal settings |
+| `kitty/` | Kitty terminal settings and the per-window tmux session launcher |
 | `tmux/` | tmux settings (including terminal graphics passthrough) |
 
 The Neovim setup has a more detailed [getting-started guide](nvim/TUTORIAL.md).
@@ -52,7 +52,9 @@ timestamped `.backup-*` paths rather than overwriting them. It is safe to rerun.
 
 Open a new shell (or run `exec zsh`) to load Zsh. Start Neovim once to download
 its plugins, then restart it when prompted. Kitty and tmux read their
-configuration on launch. In tmux, press the prefix followed by `r` to reload
+configuration on launch. Each new Kitty window starts its own tmux session
+(`kitty-1`, `kitty-2`, ...); list them with `tmux ls` and reattach with
+`tmux attach -t kitty-N`. In tmux, press the prefix followed by `r` to reload
 the settings. Use the prefix followed by `|` or `-` to create a side-by-side
 or stacked pane in the current pane's directory.
 
