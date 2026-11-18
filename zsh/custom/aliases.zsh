@@ -22,7 +22,7 @@ alias du='du -h'
 alias dus='du -sh'
 
 # Docker
-alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
+alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
 
 # Processes
 alias psg='ps aux | grep -v grep | grep'
