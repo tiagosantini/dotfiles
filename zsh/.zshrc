@@ -4,7 +4,7 @@ export ZSH_CUSTOM="$HOME/dotfiles/zsh/custom"
 export PATH="$PATH:$HOME/go/bin:$HOME/.dotnet/tools"
 export SSL_CERT_DIR="$HOME/.aspnet/dev-certs/trust:/etc/ssl/certs"
 
-ZSH_THEME="kphoen"
+ZSH_THEME="refined"
 
 HIST_STAMPS="%d/%m/%Y %H:%M:%S"
 
