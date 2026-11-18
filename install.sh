@@ -3,7 +3,7 @@
 set -euo pipefail
 
 DOTFILES_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
-EXPECTED_DIR="$HOME/dotfiles"
+EXPECTED_DIR="$HOME/Projects/dotfiles"
 
 if [[ "$DOTFILES_DIR" != "$EXPECTED_DIR" ]]; then
   printf 'This Zsh configuration expects the repository at %s.\n' "$EXPECTED_DIR" >&2

@@ -32,16 +32,16 @@ formatting may need language servers and formatters. See
 
 ## Installation
 
-Clone this repository to `~/dotfiles` because the Zsh configuration refers to
-that location:
+Clone this repository to `~/Projects/dotfiles` because the Zsh configuration
+refers to that location:
 
 ```sh
-git clone https://github.com/tiagosantini/dotfiles.git ~/dotfiles
-cd ~/dotfiles
+git clone https://github.com/tiagosantini/dotfiles.git ~/Projects/dotfiles
+cd ~/Projects/dotfiles
 ```
 
-The Zsh configuration points `ZSH_CUSTOM` at `~/dotfiles/zsh/custom`. From the
-repository directory, run:
+The Zsh configuration points `ZSH_CUSTOM` at `~/Projects/dotfiles/zsh/custom`.
+From the repository directory, run:
 
 ```sh
 ./install.sh
