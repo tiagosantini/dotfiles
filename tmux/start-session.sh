@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Start every Kitty window in its own tmux session named kitty-N, using the
+# Start every terminal window in its own tmux session named term-N, using the
 # lowest free number. Existing sessions are left untouched; reattach to one
-# manually with: tmux attach -t =kitty-N
+# manually with: tmux attach -t =term-N
 
 set -euo pipefail
 
@@ -11,7 +11,7 @@ if ! command -v tmux >/dev/null 2>&1; then
 fi
 
 for ((index = 1; index <= 1000; index++)); do
-  session="kitty-$index"
+  session="term-$index"
   if tmux has-session -t "=$session" 2>/dev/null; then
     continue
   fi
@@ -22,4 +22,4 @@ done
 
 # Fallback for an exhausted or unhealthy tmux server: fail with a clear error
 # instead of looping forever.
-exec tmux new-session -s "kitty-$(date +%s)-$$"
+exec tmux new-session -s "term-$(date +%s)-$$"

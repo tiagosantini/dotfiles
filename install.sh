@@ -35,11 +35,19 @@ link_config() {
   printf 'Linked: %s -> %s\n' "$target" "$source"
 }
 
-mkdir -p "$HOME/.config/nvim" "$HOME/.config/kitty"
+mkdir -p "$HOME/.config/nvim" "$HOME/.config/kitty" "$HOME/.local/share/konsole"
 
 link_config "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 link_config "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 link_config "$DOTFILES_DIR/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+link_config "$DOTFILES_DIR/konsole/Dotfiles.profile" "$HOME/.local/share/konsole/Dotfiles.profile"
 link_config "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+
+# Remove the old custom color scheme only when it is still our managed symlink.
+konsole_colorscheme="$HOME/.local/share/konsole/Dotfiles.colorscheme"
+if [[ -L "$konsole_colorscheme" && "$(readlink -- "$konsole_colorscheme")" == "$DOTFILES_DIR/konsole/Dotfiles.colorscheme" ]]; then
+  rm -- "$konsole_colorscheme"
+  printf 'Removed old managed color scheme link: %s\n' "$konsole_colorscheme"
+fi
 
 printf '\nDotfiles installed. Open a new shell and start Neovim to finish setup.\n'
