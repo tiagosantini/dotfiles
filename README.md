@@ -58,8 +58,10 @@ select it in **Settings → Manage Profiles** and set it as the default if
 desired. The profile inherits Konsole's KDE-provided color scheme. Set
 background transparency in **Settings → Edit Current Profile → Appearance**;
 Konsole stores opacity in its color scheme, so that adjustment is made in
-Konsole rather than tracked separately in these dotfiles. The installer leaves
-`konsolerc` alone so your other Konsole preferences remain yours.
+Konsole rather than tracked separately in these dotfiles. The installer
+preserves the rest of `konsolerc` and sets `Ctrl+C` to copy when text is selected
+(otherwise it is sent to the terminal) and `Ctrl+V` to paste. It uses
+`kwriteconfig6` or `kwriteconfig5` to update these shortcuts.
 
 Each new Kitty window or Konsole session starts its own tmux session
 (`term-1`, `term-2`, ...); list them with `tmux ls` and reattach with

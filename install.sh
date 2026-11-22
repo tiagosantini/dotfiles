@@ -43,6 +43,20 @@ link_config "$DOTFILES_DIR/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
 link_config "$DOTFILES_DIR/konsole/Dotfiles.profile" "$HOME/.local/share/konsole/Dotfiles.profile"
 link_config "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
 
+if command -v kwriteconfig6 >/dev/null 2>&1; then
+  kwriteconfig_cmd=kwriteconfig6
+elif command -v kwriteconfig5 >/dev/null 2>&1; then
+  kwriteconfig_cmd=kwriteconfig5
+else
+  printf 'Warning: kwriteconfig6/5 not found; Konsole shortcuts were not configured.\n' >&2
+  kwriteconfig_cmd=
+fi
+
+if [[ -n "$kwriteconfig_cmd" ]]; then
+  "$kwriteconfig_cmd" --file "$HOME/.config/konsolerc" --group Shortcuts --key Copy 'Ctrl+C' --notify
+  "$kwriteconfig_cmd" --file "$HOME/.config/konsolerc" --group Shortcuts --key Paste 'Ctrl+V' --notify
+fi
+
 # Remove the old custom color scheme only when it is still our managed symlink.
 konsole_colorscheme="$HOME/.local/share/konsole/Dotfiles.colorscheme"
 if [[ -L "$konsole_colorscheme" && "$(readlink -- "$konsole_colorscheme")" == "$DOTFILES_DIR/konsole/Dotfiles.colorscheme" ]]; then
