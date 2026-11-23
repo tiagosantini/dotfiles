@@ -12,6 +12,8 @@ require("conform").setup({
     formatters_by_ft = {
         lua = { "stylua" },
         go = { "gofmt" },
+        c = { "clang-format" },
+        cpp = { "clang-format" },
         javascript = { "prettierd", "prettier", stop_after_first = true },
         javascriptreact = { "prettierd", "prettier", stop_after_first = true },
         typescript = { "prettierd", "prettier", stop_after_first = true },
@@ -27,6 +29,8 @@ require("conform").setup({
         local supported = {
             lua = true,
             go = true,
+            c = true,
+            cpp = true,
             javascript = true,
             javascriptreact = true,
             typescript = true,

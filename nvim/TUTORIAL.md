@@ -327,11 +327,19 @@ for example, JS/TS projects should include their dependencies and a
 `Ctrl-Space`, or inspect LSP status with `:checkhealth vim.lsp`.
 
 Supported files are formatted on save when a formatter is available: Lua uses
-Stylua, Go uses `gofmt`, and JS/TS and common data/web files use project-local
-Prettier when installed. C# formatting falls back to the Roslyn language
-server when it supports formatting. To opt out temporarily, run
-`:FormatDisable`; use `:FormatEnable` to turn it back on. `:FormatDisable!`
-disables it globally for the current Neovim session.
+Stylua, Go uses `gofmt`, C and C++ use `clang-format`, and JS/TS and common
+data/web files use project-local Prettier when installed. C# formatting falls
+back to the Roslyn language server when it supports formatting. To opt out
+temporarily, run `:FormatDisable`; use `:FormatEnable` to turn it back on.
+`:FormatDisable!` disables it globally for the current Neovim session.
+
+C and C++ support uses `clangd` for completion, navigation, and diagnostics;
+install `clangd` and `clang-format` and make them available on `$PATH`.
+For accurate project-aware diagnostics and completion, configure your build to
+generate `compile_commands.json` (for example, with CMake's
+`-DCMAKE_EXPORT_COMPILE_COMMANDS=ON`). If the database is in a build directory,
+put a symlink to it at the project root. `clang-format` also reads formatting
+rules from a project `.clang-format` file when present.
 
 ## Transparent appearance
 

@@ -1,6 +1,8 @@
 local parsers = {
     "bash",
+    "c",
     "c_sharp",
+    "cpp",
     "css",
     "diff",
     "go",

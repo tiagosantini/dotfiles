@@ -24,7 +24,8 @@ vim.lsp.config("gopls", {
 
 vim.lsp.config("vtsls", {})
 vim.lsp.config("roslyn_ls", {})
-vim.lsp.enable({ "gopls", "vtsls" })
+vim.lsp.config("clangd", {})
+vim.lsp.enable({ "clangd", "gopls", "vtsls" })
 
 -- Roslyn is installed separately as a .NET tool; don't start a missing server.
 if vim.fn.executable("roslyn-language-server") == 1 then
