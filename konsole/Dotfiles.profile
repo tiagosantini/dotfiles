@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=Breeze
-Font=JetBrainsMono Nerd Font Mono,13,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
+Font=JetBrainsMono Nerd Font Mono,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
 
 [General]
 Command=/home/tiago/Projects/dotfiles/tmux/start-session.sh
